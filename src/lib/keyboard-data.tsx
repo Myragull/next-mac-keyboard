@@ -1,5 +1,5 @@
 // src/lib/keyboard-data.tsx
-import { CornerDownLeft, Delete } from "lucide-react";
+import { CornerDownLeft,SunDim,Sun,LayoutGrid,Search,Mic,Moon,Rewind,Play,FastForward,VolumeX,Volume1,Volume2,ArrowUp, Delete } from "lucide-react";
 import React from "react";
 
 // Define a type for safety
@@ -8,29 +8,32 @@ export type KeyData = {
   w?: string;
   top?: string;
   icon?: React.ReactNode;
+  align?: "center" | "bottom-left" | "bottom-right" | "top-left"| "split" ;
+  className?:string;
+
 };
 
 export const keyboardRows: KeyData[][] = [
   // ROW 1 (Function Row)
   [
-    { label: "Esc", w: "w-20" },
-    { label: "F1", w: "w-12" },
-    { label: "F2", w: "w-12" },
-    { label: "F3", w: "w-12" },
-    { label: "F4", w: "w-12" },
-    { label: "F5", w: "w-12" },
-    { label: "F6", w: "w-12" },
-    { label: "F7", w: "w-12" },
-    { label: "F8", w: "w-12" },
-    { label: "F9", w: "w-12" },
-    { label: "F10", w: "w-12" },
-    { label: "F11", w: "w-12" },
-    { label: "F12", w: "w-12" },
-    { label: "Del", w: "w-12" },
+    { label: "esc", w: "w-20" ,  align:"bottom-left"},
+    { label: "F1", w: "w-12",align:"split" ,icon:<SunDim size={10} /> },
+    { label: "F2", w: "w-12",align:"split" ,icon:<Sun size={10} /> },
+    { label: "F3", w: "w-12",align:"split" ,icon:<LayoutGrid size={10} /> },
+    { label: "F4", w: "w-12",align:"split" ,icon:<Search size={10} /> },
+    { label: "F5", w: "w-12",align:"split" ,icon:<Mic size={10} /> },
+    { label: "F6", w: "w-12",align:"split" ,icon:<Moon size={10} /> },
+    { label: "F7", w: "w-12",align:"split" ,icon:<Rewind size={10} /> },
+    { label: "F8", w: "w-12",align:"split" ,icon:<Play size={10} /> },
+    { label: "F9", w: "w-12",align:"split" ,icon:<FastForward size={10} /> },
+    { label: "F10", w: "w-12",align:"split" ,icon:<VolumeX size={10} /> },
+    { label: "F11", w: "w-12",align:"split" ,icon:<Volume1 size={10} /> },
+    { label: "F12", w: "w-12",align:"split" ,icon:<Volume2 size={10} /> },
+    { label: "Del", w: "w-12",align:"bottom-right" ,icon:<Delete size={10} /> },
   ],
   // ROW 2 (Numbers)
   [
-    { label: "`", w: "w-12" },
+    { label: "`", top:"~", w: "w-12" },
     { label: "1", top: "!", w: "w-12" },
     { label: "2", top: "@", w: "w-12" },
     { label: "3", top: "#", w: "w-12" },
@@ -44,11 +47,11 @@ export const keyboardRows: KeyData[][] = [
     { label: "-", top: "_", w: "w-12" },
     { label: "=", top: "+", w: "w-12" },
     // FIXED HERE:
-    { label: "Delete", w: "w-20", icon: <Delete size={20} /> }, 
+    { label: "Delete",align:"bottom-right", w: "w-20" }, 
   ],
   // ROW 3 (QWERTY)
   [
-    { label: "Tab", w: "w-20" },
+    { label: "tab", w: "w-20" , align:"bottom-left" },
     { label: "Q", w: "w-12" },
     { label: "W", w: "w-12" },
     { label: "E", w: "w-12" },
@@ -65,7 +68,7 @@ export const keyboardRows: KeyData[][] = [
   ],
   // ROW 4 (ASDF)
   [
-    { label: "Caps", w: "w-24" },
+    { label: "caps lock", w: "w-24", align:"bottom-left" },
     { label: "A", w: "w-12" },
     { label: "S", w: "w-12" },
     { label: "D", w: "w-12" },
@@ -77,11 +80,11 @@ export const keyboardRows: KeyData[][] = [
     { label: "L", w: "w-12" },
     { label: ";", top: ":", w: "w-12" },
     { label: "'", top: '"', w: "w-12" },
-    { label: "Enter", w: "w-[5.5rem]", icon: <CornerDownLeft size={16}/> }, 
+    { label: "return", w: "w-[5.5rem]", align:"bottom-right" }, 
   ],
   // ROW 5 (ZXCV)
   [
-    { label: "Shift", w: "w-30" },
+    { label: "Shift", w: "w-30", align:"bottom-left"},
     { label: "Z", w: "w-12" },
     { label: "X", w: "w-12" },
     { label: "C", w: "w-12" },
@@ -92,6 +95,6 @@ export const keyboardRows: KeyData[][] = [
     { label: ",", top: "<", w: "w-12" },
     { label: ".", top: ">", w: "w-12" },
     { label: "/", top: "?", w: "w-12" },
-    { label: "Shift", w: "w-30" },
+    { label: "shift", w: "w-30", align:"bottom-right" },
   ],
 ];

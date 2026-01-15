@@ -14,17 +14,16 @@ export const Keyboard = () => {
       {keyboardRows.map((row, rowIndex) => (
         <div key={rowIndex} className="flex flex-row gap-1.5 justify-center">
           {row.map((keyItem, keyIndex) => (
-            <Key
+            <Key 
               key={`${rowIndex}-${keyIndex}`}
-              className={keyItem.w || "w-12"}
+              className={`${keyItem.w || "w-12"} ${keyItem.className || ""}`}
               topLabel={keyItem.top}
-              // --- PASS THE ICON PROP EXPLICITLY ---
               icon={keyItem.icon} 
+              align={keyItem.align}
               isActive={activeKey === keyItem.label}
               onClick={() => handleKeyClick(keyItem.label)}
             >
-              {/* Only pass text as children if there is no icon */}
-              {!keyItem.icon && keyItem.label}
+              {keyItem.label}
             </Key>
           ))}
         </div>
@@ -41,7 +40,7 @@ export const Keyboard = () => {
         <Key className="w-12" onClick={() => handleKeyClick("Opt")} isActive={activeKey === "Opt"}>Opt</Key>
         
         {/* Cmd (Icon) */}
-        <Key className="w-16" onClick={() => handleKeyClick("Cmd")} isActive={activeKey === "Cmd"} icon={<Command size={16}/>} />
+        <Key className="w-16" onClick={() => handleKeyClick("Cmd")} isActive={activeKey === "Cmd"} icon={<Command size={10}/>} />
         
         {/* Space */}
         <Key className="w-68" onClick={() => handleKeyClick("Space")} isActive={activeKey === "Space"} />
