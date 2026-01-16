@@ -37,11 +37,11 @@ export const Keyboard = () => {
         <Key className="w-12" align="split-corners" onClick={() => handleKeyClick("fn")} isActive={activeKey === "fn"} icon={<Globe size={10} />}>fn</Key>
         <Key className="w-12" align="split-corners" onClick={() => handleKeyClick("Ctrl")} isActive={activeKey === "Ctrl"} icon={<ChevronUp size={10} />}>control</Key>
         <Key className="w-12" align="split-corners" onClick={() => handleKeyClick("Opt")} isActive={activeKey === "Opt"} icon={<Option size={10} />}>option</Key>
-        <Key className="w-16" align="split-corners" onClick={() => handleKeyClick("Cmd")} isActive={activeKey === "Cmd"} icon={<Command size={10} />}>command</Key>
+        <Key className="w-17" align="split-corners" onClick={() => handleKeyClick("Cmd")} isActive={activeKey === "Cmd"} icon={<Command size={10} />}>command</Key>
         
-        <Key className="w-64" onClick={() => handleKeyClick("Space")} isActive={activeKey === "Space"} />
+        <Key className="w-66" onClick={() => handleKeyClick("Space")} isActive={activeKey === "Space"} />
         
-        <Key className="w-16" align="split-left" onClick={() => handleKeyClick("CmdR")} isActive={activeKey === "CmdR"} icon={<Command size={10} />}>command</Key>
+        <Key className="w-17" align="split-left" onClick={() => handleKeyClick("CmdR")} isActive={activeKey === "CmdR"} icon={<Command size={10} />}>command</Key>
         <Key className="w-12" align="split-left" onClick={() => handleKeyClick("OptR")} isActive={activeKey === "OptR"} icon={<Option size={10} />}>option</Key>
 
         {/* Arrows Container */}
