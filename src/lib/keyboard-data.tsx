@@ -46,7 +46,6 @@ export const keyboardRows: KeyData[][] = [
     { label: "0", top: ")", w: "w-12" },
     { label: "-", top: "_", w: "w-12" },
     { label: "=", top: "+", w: "w-12" },
-    // FIXED HERE:
     { label: "Delete",align:"bottom-right", w: "w-20" }, 
   ],
   // ROW 3 (QWERTY)

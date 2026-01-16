@@ -1,2 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+  --color-page-bg: #0e0f11;
+  --color-keyboard-panel: #27272a;
+  --color-key-bg: #0a090d;
+
+  --color-key-border: #707073;
+
+  --color-key-text: #f9f9f9;
+  --color-key-text-muted: rgba(249, 249, 249, 0.8);
+
+  --shadow-key-resting: 0px 8px 10px -1px rgba(255, 255, 255, 0.6);
+  --shadow-key-hover: 0px 8px 10px -1px rgba(39, 39, 42, 0.9);
+  
+  --color-glow-blue: #1d4ed8; 
+  
+  --shadow-key-active: 0px 0px 5px 4px rgba(29, 78, 216, 0.9), 0px 0px 30px 1px rgba(29, 78, 216, 0.5);
+}
