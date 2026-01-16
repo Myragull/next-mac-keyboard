@@ -3,13 +3,13 @@ import { cn } from "@/lib/utils";
 
 type KeyProps = {
   className?: string;
-  children?: React.ReactNode; // Text label (e.g. "A", "F1", "Esc")
-  icon?: React.ReactNode;     // Icon component (e.g. <Sun />)
-  topLabel?: string;          // Secondary top label (e.g. "!" on "1")
-  isActive?: boolean;         // Pressed state
+  children?: React.ReactNode;
+  icon?: React.ReactNode;
+  topLabel?: string;
+  isActive?: boolean;
   onClick?: () => void;
   // Controls content positioning
-  align?: "center" | "bottom-left" | "bottom-right" | "top-left" | "split";
+  align?: "center" | "bottom-left" | "bottom-right" | "top-left" | "split" | "split-corners" | "split-left";
 };
 
 export const Key = ({
@@ -28,14 +28,16 @@ export const Key = ({
         // 1. BASE SHAPE
         "relative py-0.5 h-12 flex rounded-md select-none cursor-pointer",
         "bg-[#0a090d] border border-[#707073]",
-        "text-[#f9f9f9] text-xs font-medium",
+        "text-[#f9f9f9] text-[10px] font-light",
 
-        // 2. ALIGNMENT LOGIC (Controls where content sits in the box)
+        // 2. ALIGNMENT LOGIC (Container Level)
         align === "center" && "items-center justify-center",
         align === "bottom-left" && "items-end justify-start p-1.5",
         align === "bottom-right" && "items-end justify-end p-1.5",
         align === "top-left" && "items-start justify-start p-1.5",
-        align === "split" && "items-center justify-center", // Wrapper handles internal spacing
+        
+        // Split Wrappers (They handle their own internal spacing)
+        (align === "split" || align === "split-corners" || align === "split-left") && "items-center justify-center",
 
         // 3. HOVER (Only when not active)
         !isActive &&
@@ -56,26 +58,44 @@ export const Key = ({
     >
       {/* --- RENDER LOGIC --- */}
       
-      {/* CASE 1: SPLIT KEYS (F-Row) -> Icon Top, Label Bottom */}
-      {align === "split" ? (
-        <div className="flex flex-col items-center justify-between h-full w-full py-1">
+      {/* CASE 1: DIAGONAL SPLIT (Top-Right Icon / Bottom-Left Text) */}
+      {align === "split-corners" ? (
+        <div className="flex flex-col justify-between h-full w-full p-1.5">
+          {/* Icon: Self-End pushes it to the right */}
+          <span className="self-end opacity-80 leading-none">{icon}</span>
+          {/* Label: Self-Start pushes it to the left */}
+          <span className="self-start text-[10px] leading-none font-light">{children}</span>
+        </div>
+      ) : 
+
+      /* CASE 2: LEFT STACK (Top-Left Icon / Bottom-Left Text) */
+      align === "split-left" ? (
+        <div className="flex flex-col justify-between h-full w-full p-1.5">
+          <span className="self-start opacity-80 leading-none">{icon}</span>
+          <span className="self-start text-[10px] leading-none font-light">{children}</span>
+        </div>
+      ) :
+
+      /* CASE 3: CENTER SPLIT (F-Row) */
+      align === "split" ? (
+        <div className="flex flex-col items-center justify-center gap-3 h-full w-full py-0.5">
           <span className="opacity-80">{icon}</span>
-          <span className="text-[10px] leading-none font-bold">{children}</span>
+          <span className="text-[9px] leading-none font-bold opacity-70">{children}</span>
         </div>
       ) : topLabel ? (
         
-      /* CASE 2: NUMBER KEYS -> Symbol Top, Number Bottom */
-        <div className="flex flex-col items-center  justify-center gap-2 h-full pt-1">
+      /* CASE 4: NUMBER KEYS */
+        <div className="flex flex-col items-center justify-center gap-2 h-full pt-1">
           <span className="text-[10px] leading-none opacity-80">{topLabel}</span>
-          <span className="text-sm leading-none">{children}</span>
+          <span className="text-[10px] leading-none">{children}</span>
         </div>
       ) : icon ? (
         
-      /* CASE 3: ICON ONLY -> Centered Icon */
+      /* CASE 5: ICON ONLY (Fallback) */
         <span className="flex items-center justify-center">{icon}</span>
       ) : (
         
-      /* CASE 4: STANDARD TEXT -> Just Children */
+      /* CASE 6: STANDARD TEXT */
         children
       )}
     </div>
