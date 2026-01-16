@@ -28,7 +28,7 @@ export const Key = ({
       aria-label={typeof children === "string" ? children : topLabel || "key"}
       className={cn(
         // 1. BASE SHAPE & COLORS
-        "relative py-0.5 h-12 flex rounded-md select-none cursor-pointer",
+        "relative py-0.5 h-12 flex rounded-lg select-none cursor-pointer",
         "bg-key-bg border border-key-border text-key-text",
         "text-[10px] font-light",
 
