@@ -52,3 +52,30 @@ src/
 └── lib/
     ├── keyboard-data.tsx # Data configuration for standard rows
     └── utils.ts         # Class merging helper
+```
+
+## 🚀 Getting Started
+# 1. Clone the repository:
+
+```bash 
+git clone [https://github.com/your-username/next-mac-keyboard.git](https://github.com/your-username/next-mac-keyboard.git)
+cd next-mac-keyboard
+```
+
+# 2. Install dependencies:
+
+```bash
+npm install
+# or
+pnpm install
+```
+
+# 3 Run the development server:
+```bash
+npm run dev
+```
+
+## Author
+Created with Love by Myra (https://github.com/Myragull)
+
+If you enjoyed this project, please consider giving it a star! ⭐
