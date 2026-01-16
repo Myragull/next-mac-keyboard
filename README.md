@@ -7,7 +7,7 @@ This project demonstrates modern frontend practices, including semantic HTML, ac
 ![Project Preview](https://via.placeholder.com/1200x600?text=Replace+with+Project+Screenshot)
 ## 🚀 Live Demo
 
-[**View Live Deployment**](https://your-deployment-link-here.com)
+[**View Live Deployment**]    (https://next-mac-keyboard.vercel.app/)
 
 ---
 
