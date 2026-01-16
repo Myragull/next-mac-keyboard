@@ -1,4 +1,3 @@
-// src/lib/keyboard-data.tsx
 import { SunDim,Sun,LayoutGrid,Search,Mic,Moon,Rewind,Play,FastForward,VolumeX,Volume1,Volume2, Delete } from "lucide-react";
 import React from "react";
 
