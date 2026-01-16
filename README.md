@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next Mac Keyboard ⌨️
 
-## Getting Started
+A pixel-perfect, interactive visualizer of the Apple Magic Keyboard, built with **Next.js 16**, **Tailwind CSS 4.0**, and **TypeScript**. 
 
-First, run the development server:
+This project demonstrates modern frontend practices, including semantic HTML, accessibility (A11y) standards, and a scalable design system using Tailwind's latest `@theme` configuration. It also enforces code quality using **Prettier**.
+
+![Project Preview](https://via.placeholder.com/1200x600?text=Replace+with+Project+Screenshot)
+## 🚀 Live Demo
+
+[**View Live Deployment**](https://your-deployment-link-here.com)
+
+---
+
+## ✨ Key Features
+
+- **Hyper-Realistic Layout:** Accurate replication of the Mac keyboard layout, including the specific "Inverted-T" arrow keys and split-alignment modifier keys (Control, Option, Command).
+- **Interactive States:** Keys react to both **mouse clicks** and **physical keyboard presses** via custom hooks.
+- **Modern Styling Engine:** Built using **Tailwind CSS v4**, utilizing the new CSS-first `@theme` configuration strategy.
+- **Semantic & Accessible:**
+  - Uses semantic `<main>`, `<section>`, and `<button>` tags.
+  - Full ARIA support (`aria-label`, `aria-pressed`) for screen readers.
+  - Keyboard navigation friendly.
+- **Reusable Architecture:** Implements a reusable `Container` pattern for consistent layout width and spacing.
+- **Code Quality:** Consistent code formatting enforced via a custom `.prettierrc` configuration.
+
+## 🛠️ Tech Stack & Tooling
+
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+- **Styling:** [Tailwind CSS 4.0](https://tailwindcss.com/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Formatter:** [Prettier](https://prettier.io/) (Configured via `.prettierrc`)
+- **Bundler:** Turbopack (Default in Next.js 16)
+
+## 📂 Architecture
+
+The project follows a modular, atomic folder structure designed for scalability:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+src/
+├── app/
+│   ├── globals.css      # Design System (Tailwind @theme variables)
+│   ├── layout.tsx       # Root layout
+│   └── page.tsx         # Semantic <main> entry point
+├── components/
+│   └── ui/
+│       ├── container.tsx # Reusable wrapper for max-width & padding
+│       ├── keyboard.tsx  # Main keyboard section container
+│       └── key.tsx       # Polymorphic, accessible Key component
+├── hooks/
+│   └── useKeyboard.ts   # Custom hook for global event listeners & state
+└── lib/
+    ├── keyboard-data.tsx # Data configuration for standard rows
+    └── utils.ts         # Class merging helper
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
+# 1. Clone the repository:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash 
+git clone [https://github.com/your-username/next-mac-keyboard.git](https://github.com/your-username/next-mac-keyboard.git)
+cd next-mac-keyboard
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 2. Install dependencies:
 
-## Learn More
+```bash
+npm install
+# or
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+# 3 Run the development server:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author
+Created with Love by Myra (https://github.com/Myragull)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If you enjoyed this project, please consider giving it a star! ⭐
