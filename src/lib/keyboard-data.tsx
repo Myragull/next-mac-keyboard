@@ -1,5 +1,5 @@
 // src/lib/keyboard-data.tsx
-import { CornerDownLeft,SunDim,Sun,LayoutGrid,Search,Mic,Moon,Rewind,Play,FastForward,VolumeX,Volume1,Volume2,ArrowUp, Delete } from "lucide-react";
+import { SunDim,Sun,LayoutGrid,Search,Mic,Moon,Rewind,Play,FastForward,VolumeX,Volume1,Volume2, Delete } from "lucide-react";
 import React from "react";
 
 // Define a type for safety

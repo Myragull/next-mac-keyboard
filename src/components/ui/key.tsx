@@ -22,13 +22,16 @@ export const Key = ({
   align = "center",
 }: KeyProps) => {
   return (
-    <div
+    <button type="button"
       onClick={onClick}
+      aria-pressed={isActive}
+      aria-label={typeof children === 'string'? children : topLabel || "key"}
       className={cn(
         // 1. BASE SHAPE
         "relative py-0.5 h-12 flex rounded-md select-none cursor-pointer",
         "bg-[#0a090d] border border-[#707073]",
         "text-[#f9f9f9] text-[10px] font-light",
+
 
         // 2. ALIGNMENT LOGIC (Container Level)
         align === "center" && "items-center justify-center",
@@ -98,6 +101,6 @@ export const Key = ({
       /* CASE 6: STANDARD TEXT */
         children
       )}
-    </div>
+    </button>
   );
 };

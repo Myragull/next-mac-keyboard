@@ -3,13 +3,13 @@ import React from "react";
 import { Key } from "./key";
 import { useKeyboard } from "@/hooks/useKeyboard";
 import { keyboardRows } from "@/lib/keyboard-data";
-import { Command, ChevronUp, ChevronDown, ChevronLeft, ChevronRight , Globe, Option, icons} from "lucide-react";
+import { Command, ChevronUp, ChevronDown, ChevronLeft, ChevronRight , Globe, Option} from "lucide-react";
 
 export const Keyboard = () => {
   const { activeKey, handleKeyClick } = useKeyboard();
 
   return (
-    <div className="flex flex-col gap-1 px-2 py-2.5 bg-[#27272a] rounded-xl border border-[#27272a] shadow-2xl">
+    <section aria-label="Virtual Keyboard" className="flex flex-col gap-1 px-2 py-2.5 bg-[#27272a] rounded-xl border border-[#27272a] shadow-2xl">
       {/* AUTOMATIC ROWS (1-5) */}
       {keyboardRows.map((row, rowIndex) => (
         <div key={rowIndex} className="flex flex-row gap-1.5 justify-center">
@@ -63,6 +63,6 @@ export const Keyboard = () => {
           <Key className="w-12 h-5.5" onClick={() => handleKeyClick("Right")} isActive={activeKey === "Right"} icon={<ChevronRight size={16} />} />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
